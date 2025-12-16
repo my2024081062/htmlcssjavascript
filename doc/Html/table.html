@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>테이블</h1>
+    <div> html5에서 잘 사용하지 않음 flex, grid</div>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>이름</th>
+                <th>번호</th>
+                <th>성적</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>김</td>
+                <td>1</td>
+                <td>90</td>
+            </tr>
+            <tr>
+                <td>이</td>
+                <td>2</td>
+                <td>88</td>
+            </tr>
+            <tr>
+                <td>박</td>
+                <td>3</td>
+                <td>99</td>
+            </tr>
+            <tr>
+                <td rowspan="2">안</td>
+                <td rowspan="2">4</td>
+                <td>50</td>
+            </tr>
+            <tr>
+                <td>70</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>4명</td>
+                <td colspan="2">평균:?</td>
+            </tr>
+        </tfoot>
+    </table>
+    <table border="1">
+        <tr>
+            <td colspan="2" style="text-align: center;">11111</td>
+        </tr>
+        <tr>
+            <td rowspan="2">22222</td>
+            <td>33333</td>
+        </tr>
+        <tr>
+            <td>44444</td>
+        </tr>
+    </table>
+</body> 
+</html>
