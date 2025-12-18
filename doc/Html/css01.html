@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* CSS 문법
+    선택자(태그, .클래스명, #아이디명, 특수지정) {
+      CSS속성이름: CSS속성값;
+      CSS속성이름: CSS속성값;
+    }
+     */
+    main {width: 60%; display: inline-block;}
+    article {width: 39%; display: inline-block;}
+    .title {
+      color: blue;
+      font-size: 48px;
+    }
+    .content {
+      color: gray;
+      font-size: 24px;
+    }
+    /*자손선택자*/
+    div p {
+      background-color: lightskyblue;
+    }
+    /*자식선택자*/
+    .span1 > p {
+      background-color: lightgoldenrodyellow;
+    }
+    /*형제*/
+    div + a {
+      font-size: 25px;
+    }
+    a:visited{ color: green;}
+    a:hover{ color:darkblue;}
+    a:active{ color: red;}
+    a:focus{ color: palevioletred;}
+    .p1::first-line{
+      font-size: 25px;
+    }
+    .li1:nth-child(3n+1){
+      color: red;
+    }
+    span.text {color: bisque;}
+    .block{
+      display: block;
+    }
+    article ul {
+      padding: 20px 0px 20px 20px;
+      background-color: red;
+    }
+    article li {
+      background-color: plum;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <p class="title">내부 스타일</p>
+  </header>
+  <main>
+    <p class="content">내부 스타일</p>
+    <div>
+      <p class="content"> div 안 p태그</p>
+      <span>
+        <p>div 안 span 안 p태그</p>
+      </span>
+    </div>
+    <a href="text.html">방문해보기</a>
+    <a href="table.html">마우스 올려보기</a>
+    <span class="span1">
+      <p>span의 자식 p태그</p>
+    </span>
+    <p class="p1">
+      <span>1번째 라인이라서 크기가커졌음</span>
+      <span class="block">블럭?</span>
+      <span>블럭?</span>
+      <span>블럭?</span>
+      <span>블럭?</span>
+      <span class="block">블럭?</span>
+      <span>블럭?</span>
+      <span>블럭?</span>
+      <span class="block">블럭?</span>
+      <span>블럭?</span>
+      <span>블럭?</span>
+    </p>
+    <span class="text">
+      <p>span의 자식 p태그</p>
+    </span>
+    <ul>
+      <li class="li1">1</li>
+      <li class="li1">2</li>
+      <li class="li1">3</li>
+      <li class="li1">4</li>
+      <li class="li1">5</li>
+      <li class="li1">6</li>
+      <li class="li1">7</li>
+    </ul>
+  </main>
+  <article>
+    <ul>
+      <li>coffie</li>
+      <li>tea</li>
+      <li>drink</li>
+    </ul>
+  </article>
+  <footer>
+  </footer>
+</body>
+</html>
