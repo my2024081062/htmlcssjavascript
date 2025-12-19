@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .div1,
+      .div2,
+      .div3 {
+        color: gray;
+      }
+      .div4 {
+        color: red;
+      }
+      .p1 .div4 {
+        color: blue;
+      }
+      .div4 .div5 {
+        color: green;
+      }
+      .p1 + .div6 {
+        color: yellowgreen;
+      }
+      .div6:nth-child(3n+1) {
+        border-color: greenyellow;
+        border-style: solid;
+        border-width: 2px;
+      }
+      .div6:nth-child(3n+2) {
+        border: 2px dotted blue;
+      }
+      .div6:nth-child(3n) {
+        border: 2px outset palevioletred;
+      }
+      .div6:nth-child(2n)::first-letter {
+        font-size: 20px; 
+        color: red;
+      }
+      .div6:nth-child(2n+1)::first-letter {
+        font-size: 20px; 
+        color: blue;
+      }
+      ::selection{
+        background-color: lightskyblue;
+      }
+      input::placeholder{
+        color: violet;
+      }
+      fieldset:hover {
+        border-width: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="width: 300px; display: inline-block;" >
+      <div class="div1">div 1</div>
+      <div class="div2">div 2</div>
+      <div class="div3">div 3</div>
+      <div class="p1">
+        <div class="div4">div 4</div>
+        <div>
+          <div class="div4">
+            <div class="div5">div 5</div>
+          </div>
+        </div>
+      </div>
+      <div class="div6">div 6</div>
+      <div class="div6">div 6</div>
+      <div class="div6">div 6</div>
+      <div class="div6">div 6</div>
+      <div class="div6">div 6</div>
+      <div class="div6">div 6</div>
+      <div class="div6">div 6</div>
+      <div class="div6">div 6</div>
+    </div>
+    <div style="width: 300px; display: inline-block;" >
+        <form>
+            <input type="text" class="input" placeholder="글자를 입력">
+            <input type="text" class="input" placeholder="글자를 입력">
+            <fieldset>
+                <textarea rows="5" cols="30" class="input" placeholder="글자를 입력"></textarea>
+            </fieldset>
+        </form>
+    </div>
+  </body>
+</html>
