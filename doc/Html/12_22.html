@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .section_container {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+      }
+      .header_container {
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        border: 1px solid black;
+      }
+      .header_item1 {
+        flex: 1;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+      }
+      .header_item1 div{
+        border: 1px solid black;
+        margin: 3px;
+        padding: 1px;
+      }
+      .header_item1 .logo {
+        margin: 3px;
+      }
+      .header_item1 .search {
+        margin: 3px;
+        width: 200px;
+      }
+      .header_item1 .gnb {
+        background-color: rgb(167, 214, 243);
+        margin: 3px 3px 3px auto;
+      }
+      .header_item2 {
+        flex: 1;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        border-top: 1px solid black;
+      }
+      .header_item2 div{
+        border: 1px solid black;
+        margin: 3px;
+        padding: 1px;
+        overflow: hidden; /* 내용이 넘치면 자르라 */
+        text-overflow: ellipsis; /* 출력할 크기를 넘으면 ...으로 보여라 */
+        white-space: nowrap; /* 줄을 바꾸지 마라 */
+      }
+      .div_containers {
+        flex: 8;
+        display: flex;
+        flex-direction: row;
+        border: 1px solid black;
+      }
+      .nav_container {
+        flex: 1;
+        display: flex;
+        overflow: auto;
+        flex-direction: column;
+      }
+      .main_container {
+        flex: 6;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-left: 1px solid black;
+        border-right: 1px solid black;
+      }
+      .dog_container {
+        flex: 1;
+        width: 100%;
+        min-height: 25%;
+        max-height: 25%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+      }
+      .dog {
+        flex: 1;
+        max-width: 160px;
+        height: 100%;
+        border: 1px solid cadetblue;
+      }
+
+      .dog img {
+        width: 100%;
+        height: 100%;
+        object-fit: fill;
+      }
+      .footer_container {
+        flex: 1;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h2>홈페이지 만들어보기</h2>
+    </header>
+    <section class="section_container">
+      <header class="header_container">
+        <div class="header_item1">
+          <div class="logo">logo</div>
+          <div class="search">search</div>
+          <div class="gnb">gnb</div>
+        </div>
+        <div class="header_item2">
+          <div>나의 소개</div>
+          <div>나의 이름: 이승협</div>
+          <div>나의 전공: 컴퓨터공학과</div>
+          <div>나의 취미: 집에서 할수있는 모든것</div>
+        </div>
+      </header>
+      <div class="div_containers">
+        <nav class="nav_container">
+          <p>오직 flex만 사용하여 만듬.</p>
+          <p>사진콘테이너 안 4x4사진들에게만 max-width: 160px만을 줌.</p>
+          <p>flex-direction: column과 flex-direction: row;를 활용하여 2차원 배열을 함.</p>
+        </nav>
+        <main class="main_container">
+          <div class="dog_container">
+            <div class="dog"><img src="dog_file/1.jpg" alt="개사진1" /></div>
+            <div class="dog"><img src="dog_file/2.jpg" alt="개사진2" /></div>
+            <div class="dog"><img src="dog_file/3.jpg" alt="개사진3" /></div>
+            <div class="dog"><img src="dog_file/4.jpg" alt="개사진4" /></div>
+          </div>
+          <div class="dog_container">
+            <div class="dog"><img src="dog_file/5.jpg" alt="개사진5" /></div>
+            <div class="dog"><img src="dog_file/6.jpg" alt="개사진6" /></div>
+            <div class="dog"><img src="dog_file/7.jpg" alt="개사진7" /></div>
+            <div class="dog"><img src="dog_file/8.jpg" alt="개사진8" /></div>
+          </div>
+          <div class="dog_container">
+            <div class="dog"><img src="dog_file/9.jpg" alt="개사진9" /></div>
+            <div class="dog"><img src="dog_file/10.jpg" alt="개사진10" /></div>
+            <div class="dog"><img src="dog_file/11.jpg" alt="개사진11" /></div>
+            <div class="dog"><img src="dog_file/12.jpg" alt="개사진12" /></div>
+          </div>
+          <div class="dog_container">
+            <div class="dog"><img src="dog_file/13.jpg" alt="개사진13" /></div>
+            <div class="dog"><img src="dog_file/14.jpg" alt="개사진14" /></div>
+            <div class="dog"><img src="dog_file/15.jpg" alt="개사진15" /></div>
+            <div class="dog"><img src="dog_file/16.jpg" alt="개사진16" /></div>
+          </div>
+        </main>
+      </div>
+      <footer class="footer_container">
+        <div>컨텐츠 안 풋터</div>
+      </footer>
+    </section>
+    <footer>2024-12-22 작성</footer>
+  </body>
+</html>
