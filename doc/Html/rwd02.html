@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- Latest compiled and minified CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+      :root {
+        --main-background-color: cornsilk;
+        --main-color: rgb(100, 69, 69);
+      }
+      .html_body {
+        background-color: var(--main-background-color);
+        color: var(--main-color);
+      }
+      .my-card {
+        margin: 10px 5px;
+        background-color: antiquewhite;
+      }
+      .cinema {
+        background-color: rgba(200, 15, 15, 0.2);
+      }
+      .cinema_title {
+        background-color: rgba(233, 7, 7, 0.2);
+      }
+      .cinema_story::before {
+        content: "♣ "; /* 둥근 점 기호 삽입 */
+        color: #3718e7; /* 점 색상 설정 */
+        font-size: 1.2em; /* 점 크기 설정 */
+        /* 필요에 따라 위치 조정 */
+      }
+      .actor {
+        background-color: rgba(15, 15, 220, 0.2);
+      }
+      .actor_name {
+        background-color: rgba(15, 15, 220, 0.5);
+      }
+      .actor_description::before {
+        content: "- {";
+      }
+      .actor_description::after {
+        content: "}";
+      }
+      .screen_control {
+        position: sticky;
+        top: 5px;
+        text-align: right;
+      }
+    </style>
+  </head>
+  <body class="html_body">
+    <div class="screen_control">
+      <label>하얀화면</label>
+      <input type="radio" name="theme" checked onclick="changeLight();" />
+      <label>검은화면</label>
+      <input type="radio" name="theme" onclick="changeDark();" />
+      <script>
+        function changeLight() {
+          // alert('환한화면 만든다.');
+          document.documentElement.style.setProperty("--main-background-color","cornsilk");
+          document.documentElement.style.setProperty("--main-color", "black");
+
+          let cardList = document.getElementsByClassName("card-body");
+          for (let i = 0; i < cardList.length; i++) {
+            cardList[i].classList.remove("text-warning");
+          }
+        }
+        function changeDark() {
+          // alert('어두운화면 만든다.');
+          document.documentElement.style.setProperty("--main-background-color","#333");
+          document.documentElement.style.setProperty("--main-color", "white");
+          
+          let cardList = document.getElementsByClassName("card-body");
+          for (let i = 0; i < cardList.length; i++) {
+            cardList[i].classList.add("text-warning");
+          }
+        }
+      </script>
+    </div>
+    <header class="">
+      <div class="container">
+        <div class="h1">영화정보</div>
+      </div>
+    </header>
+    <main class="container mt-3">
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <div class="card my-card">
+            <div class="card-header bg-primary text-white">십계</div>
+            <div class="card-body">이스라엘 고대 민족의 이집트 탈출기</div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="cinema card my-card">
+            <div class="cinema_title bg-primary text-white card-header">삼국지</div>
+            <div class="cinema_story card-body">중국의 삼국역사 이야기</div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="cinema card my-card">
+            <div class="cinema_title bg-primary text-white card-header">베베핀</div>
+            <div class="cinema_story card-body">
+              아기상어 동요로 시작된 유아용 애니메이션
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="footer_item">
+        @Copyright free, made by ... (2025-12-24)
+      </div>
+    </footer>
+  </body>
+</html>

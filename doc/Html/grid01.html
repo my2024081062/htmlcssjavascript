@@ -47,7 +47,7 @@
         display: grid;
         /* 첫칸을 50px짜리 빈칸이게 됨(grid-column: 1과 같음) */
         grid-template-columns: 50px;
-	    grid-auto-columns: 1fr 2fr;
+	      grid-auto-columns: 1fr 2fr;
         gap: 5px;
       }
       .item2 {
@@ -70,10 +70,10 @@
         margin: 3px 0px;
         display: grid;	
         grid-template-areas:
-		"i1 i2 i3"
-		"i4 i5 i6"
+		    "i1 i2 i3"
+		    "i4 i5 i6"
         ". . ."
-		"i7 i8 i9";
+		    "i7 i8 i9";
         justify-content: space-around;
         gap: 5px;
       }
@@ -97,9 +97,9 @@
       .container4 {
         margin: 3px 0px;
         display: grid;
-	    grid-template-columns: repeat(auto-fill, minmax(25%, auto));
-	    grid-template-rows: repeat(5, minmax(50px,auto));
-	    grid-auto-flow: row dense;
+	      grid-template-columns: repeat(auto-fill, minmax(25%, auto));
+	      grid-template-rows: repeat(5, minmax(50px,auto));
+	      grid-auto-flow: row dense;
       }
       .item4 {
         border: 1px solid black;
@@ -110,6 +110,26 @@
       .item4:nth-child(2) { grid-column: auto / span 3; }
       .item4:nth-child(5) { grid-column: auto / span 3; }
       .item4:nth-child(7) { grid-column: auto / span 2; }
+
+      .container5 {
+        width: 50%;
+        margin: 3px 0px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+	      grid-template-areas:
+		    "j1 j1 j2"
+		    "j3 j1 j4"
+		    "j1 j1 j5";
+      }
+      .item5{
+        border: 1px solid black;
+      }
+      .j1 {grid-area: j1;}
+      .j2 {grid-area: j2;}
+      .j3 {grid-area: j3;}
+      .j4 {grid-area: j4;}
+      .j5 {grid-area: j5;}
     </style>
   </head>
   <body>
@@ -156,6 +176,13 @@
       <div class="item4">7</div>
       <div class="item4">8</div>
       <div class="item4">9</div>
+    </div>
+    <div class="container5">
+      <div class="item5 j1">1</div>
+      <div class="item5 j2">2</div>
+      <div class="item5 j3">3</div>
+      <div class="item5 j4">4</div>
+      <div class="item5 j5">5</div>
     </div>
   </body>
 </html>

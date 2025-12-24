@@ -1,0 +1,142 @@
+:root {
+  --main-background-color: cornsilk;
+  --main-color: black;
+}
+.html_body {
+  background-color: var(--main-background-color);
+  color: var(--main-color);
+}
+.screen_control {
+  position: relative;
+  text-align: right;
+  top: 5px;
+  left: 5px;
+}
+.header_item {
+  text-align: center;
+  font-size: 65px;
+  margin: 1.5vh 0px;
+}
+.card {
+  background-color: rgba(218, 165, 32, 0.2);
+  display: flex;
+  flex-direction: column;
+  border: 1px solid darkslategray;
+  margin: 12px 24px;
+  padding: 12px 24px;
+}
+.card_title {
+  background-color: rgba(218, 165, 32, 0.8);
+  text-align: center;
+  font-size: 24px;
+  font-weight: 800;
+  margin: 3px;
+  padding: 12px 8px;
+}
+.card_text {
+  padding: 0.5rem 10px 1rem;
+}
+.card_text::before {
+  content: "●  ";
+  color: #333;
+  font-size: 0.4em;
+}
+.cinema {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(200, 15, 15, 0.2);
+}
+.cinema_title {
+  background-color: rgba(233, 7, 7, 0.2);
+}
+.cinema_story {
+  border: none;
+}
+.cinema_story::before {
+  content: "★  ";
+  color: #502bd6;
+  font-size: 0.9em;
+}
+.actor {
+  background-color: rgba(15, 15, 240, 0.2);
+}
+.actor_name {
+  background-color: rgba(15, 15, 240, 0.5);
+}
+.actor_discription {
+  border: none;
+}
+.actor_discription::before {
+  content: "{ ";
+  color: #333;
+  font-size: 0.9em;
+}
+.actor_discription::after {
+  content: " }";
+  color: #333;
+  font-size: 0.9em;
+}
+.footer_item {
+  text-align: center;
+  background-color: lightgrey;
+  margin: 0 24px 12px;
+  padding: 8px 24px;
+}
+@media (min-width: 768px) {
+  .header_item {
+    font-size: 50px;
+  }
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+  .card {
+    margin: 9px 18px;
+    padding: 9px 18px;
+  }
+  .card_title {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 5px;
+    padding: 9px 6px;
+  }
+  .card_text {
+    padding: 0.4rem 8px 0.8rem;
+  }
+
+  .footer_item {
+    margin: 0 18px 9px;
+    padding: 6px 18px;
+  }
+}
+@media (min-width: 1024px) {
+  .header_item {
+    font-size: 40px;
+  }
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-auto-rows: 1fr;
+  }
+  .card {
+    margin: 6px 12px;
+    padding: 6px 12px;
+  }
+  .card_title {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 8px;
+    padding: 9px 6px;
+  }
+  .card_text {
+    padding: 0.3rem 6px 0.6rem;
+  }
+
+  .footer_item {
+    text-align: center;
+    background-color: lightgrey;
+    margin: 0 12px 6px;
+    padding: 4px 12px;
+  }
+}

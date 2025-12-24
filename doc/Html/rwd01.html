@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/rwd01.css" />
+  </head>
+  <body class="html_body">
+    <div class="screen_control">
+      <label>하얀화면</label>
+      <input type="radio" name="theme" checked onclick="changeLight();" />
+      <label>검은화면</label>
+      <input type="radio" name="theme" onclick="changeDark();" />
+    </div>
+    <script>
+        // CSS 변수 값을 동적으로 변경
+        // document.documentElement.style.setProperty('--main-color', 'red');
+        function changeLight() {
+            document.documentElement.style.setProperty('--main-color', 'black');
+            document.documentElement.style.setProperty('--main-background-color', 'cornsilk');
+        }
+        function changeDark() {
+            document.documentElement.style.setProperty('--main-color', 'white');
+            document.documentElement.style.setProperty('--main-background-color', '#333');
+        }
+    </script>
+    <header>
+      <h2 class="header_item">영화 정보</h2>
+    </header>
+    
+    <main>
+      <section class="container">
+        <div class="card">
+          <div class="card_title">십계</div>
+          <div class="card_text">이스라엘 고대 민족의 이집트 탈출기</div>
+        </div>
+        <div class="cinema card">
+          <div class="cinema_title card_title">삼국지</div>
+          <div class="cinema_story card_text">중국의 삼국역사 이야기</div>
+        </div>
+        <div class="cinema card">
+          <div class="cinema_title card_title">베베핀</div>
+          <div class="cinema_story card_text">
+            아기상어 동요로 시작된 유아 애니메이션
+          </div>
+        </div>
+      </section>
+      <section class="container">
+        <div class="card">
+          <div class="card_title">송강호</div>
+          <div class="card_text">한국의 훌륭한배우</div>
+        </div>
+        <div class="actor card">
+          <div class="actor_name card_title">안성기</div>
+          <div class="actor_discription card_text">
+            한국의 2세대 훌륭한 남배우
+          </div>
+        </div>
+        <div class="actor card">
+          <div class="actor_name card_title">전도연</div>
+          <div class="actor_discription card_text">
+            한국의 2세대 훌륭한 여배우
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="footer_item">@Copyright free, made by ... 2025</div>
+    </footer>
+  </body>
+</html>
