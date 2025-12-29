@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Document</title>
+	<style>
+	  body {
+		background-color: lightblue;
+	  }
+	  .header_row {
+		display: grid;
+		grid-template-columns: 1fr 2fr;
+		/* grid-template-areas: 
+		"h_i1 h_i2 h_i2"
+		"h_i1 h_i2 h_i2"; 이건 의도대로 안됨*/
+		text-align: center;
+		line-height: 6vh; /* line-height에 vh를 주면 align-item: center 같은 효과를 준다? # 높이에 따라서 일일이 vh를 수정해줘야함 */
+	  }
+	  .header_item1 {
+		background-color: slateblue;
+		margin: 10px;
+		/* grid-area: h_i1; */
+	  }
+	  .header_item2 {
+		background-color: darkkhaki;
+		margin: 10px;
+		/* grid-area: h_i2; */
+	  }
+	  .main_row {
+		display: grid;
+		grid-auto-flow: row;
+		grid-template-columns: 1fr;
+		grid-auto-rows: 1fr;
+	  }
+	  .sector {
+		display: grid;
+		grid-auto-flow: row;
+		grid-template-columns: 1fr;
+		grid-auto-rows: 1fr 2fr;
+	  }
+	  .main_item1 {
+		/* background-color: ghostwhite; 배경 흰색일때 쓰면 좋다*/
+		background-color: aliceblue;
+		margin: 10px 10px 15px;
+		text-align: center;
+		line-height: 9vh;
+	  }
+	  .main_item2 {
+		display: none;
+		visibility: hidden;
+	  }
+	  .sector:nth-child(1) > .main_title {
+		background-color: gold;
+		margin: 10px 10px 5px;
+		text-align: center;
+		line-height: 4vh;
+	  }
+	  .sector:nth-child(2) > .main_title {
+		background-color: darksalmon;
+		margin: 10px 10px 5px;
+		text-align: center;
+		line-height: 4vh;
+	  }
+	  .sector:nth-child(3) > .main_title {
+		background-color: yellowgreen;
+		margin: 10px 10px 5px;
+		text-align: center;
+		line-height: 4vh;
+	  }
+	  @media (min-width: 600px) {
+		.header_row {
+		  grid-template-columns: 1fr 1fr;
+		  line-height: 7vh;
+		  margin: 0 10px;
+		}
+		.sector {
+		  grid-auto-flow: row;
+		  grid-template-columns: repeat(5, 1fr);
+		  grid-template-rows: repeat(6, 1fr);
+		  margin: 10px 10px;
+		}
+		.main_title {
+		  grid-column: 1 / 3;
+		  grid-row: 1 / 3;
+		}
+		.sector:nth-child(1) > .main_title {
+		  line-height: 5.5vh;
+		  margin: 10px 15px 0;
+		}
+		.sector:nth-child(2) > .main_title {
+		  line-height: 5.5vh;
+		  margin: 10px 15px 0;
+		}
+		.sector:nth-child(3) > .main_title {
+		  line-height: 5.5vh;
+		  margin: 10px 15px 0;
+		}
+		.main_item1 {
+		  grid-column: 3 / 6;
+		  grid-row: 1 / 7;
+		  margin: 10px 10px 15px 0px;
+		}
+		.main_item2 {
+		  background-color: aliceblue;
+		  margin: 10px 0 15px 10px;
+		  text-align: center;
+		  line-height: 9vh;
+		  display: block;
+		  visibility: visible;
+		  grid-column: 1 / 3;
+		  grid-row: 3 / 7;
+		}
+	  }
+	  @media (min-width: 600px) and (orientation: landscape) {
+		.headerRow {
+		  display: grid;
+		  grid-template-columns: 1fr 1fr;
+		}
+	  }
+	  @media (min-width: 1024px) {
+		.header_row {
+		  grid-template-columns: 1fr 4fr;
+		  line-height: 8vh;
+		  margin: 0 20px;
+		}
+		.main_row {
+		  display: grid;
+		  grid-auto-flow: column;
+		  grid-auto-columns: 1fr;
+		  grid-template-rows: 1fr;
+		}
+		.sector {
+		  grid-template-columns: 1fr;
+		  grid-template-rows: 1fr 1fr;
+		  margin: 10px 20px;
+		  height: 40vh;
+		}
+		.main_title {
+		  grid-column: 1 / 2;
+		  grid-row: 1 / 3;
+		  margin: 10px 10px 5px;
+		}
+		.sector:nth-child(1) > .main_title {
+		  line-height: 7vh;
+		}
+		.sector:nth-child(2) > .main_title {
+		  line-height: 7vh;
+		}
+		.sector:nth-child(3) > .main_title {
+		  line-height: 7vh;
+		}
+		.main_item1 {
+		  margin: 10px;
+		  grid-column: 1 / 2;
+		  grid-row: 3 / 8;
+		}
+		.main_item2 {
+		  display: none;
+		  visibility: hidden;
+		}
+	  }
+	</style>
+  </head>
+  <body>
+	<header class="my_header">
+	  <div class="header_row">
+		<div class="header_item1">제목1</div>
+		<div class="header_item2">제목2</div>
+	  </div>
+	</header>
+	<main>
+	  <div class="my_main">
+		<div class="main_row">
+		  <div class="sector">
+			<div class="main_title">타이틀1</div>
+			<div class="main_item1">내용1</div>
+			<div class="main_item2"></div>
+		  </div>
+		  <div class="sector">
+			<div class="main_title">타이틀2</div>
+			<div class="main_item1">내용2</div>
+			<div class="main_item2"></div>
+		  </div>
+		  <div class="sector">
+			<div class="main_title">타이틀3</div>
+			<div class="main_item1">내용3</div>
+			<div class="main_item2"></div>
+		  </div>
+		</div>
+	  </div>
+	</main>
+  </body>
+</html>
