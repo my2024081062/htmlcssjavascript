@@ -42,7 +42,7 @@ console.log(c1); //5
 
 let d = 500;
 
-console.log( d++ / 100 * b - ++c1); //994 (500 / 100 * 200 - 6);
+console.log(d++ / 100 * b - ++c1); //994 (500 / 100 * 200 - 6);
 console.log(d); //501
 console.log(c1); //6
 let user1=null;
@@ -61,4 +61,16 @@ console.log(
     true == 1 && false == 0 === 'true' ||
     true == 1 && false == 0 === true ? "boolean타입형이 하나라도 있음" : "모두 boolean타입형이 아님"
 );
+let func2 = function(){
+    var a1= 10;
+    return a1;
+}; func2();
+let func3 = function(){
+    let a2= 10;
+    return a2;
+}; func3();
+let func4 = function(){
+    const a3= 10;
+    return a3;
+}; func4();
 
