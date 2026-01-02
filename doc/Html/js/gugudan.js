@@ -14,22 +14,28 @@ console.log(`4단`)
 guguCallBack(4);
 console.log(`5단`)
 guguCallBack(5);
+
 function guguPromise(n) {
+    //Promise는 resolve, reject함수를 인자로 가진 함수를 인자로 가짐.
+    //resolve()가 실행되면 fulfilled상태가 됨(true)
+    //reject()가 실행되면 rejected상태가 됨(false)
+    //두 함수에 임의의 값 n을 넣으면 then(resolve_n),catch(reject_n)으로 그 인자를 사용할 수 있음.
+    //then(resolve_n,reject_n)로 reject_n값을 사용 못함.
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             console.log(`${n}단`)
             for (let i = 1; i <= 9; i++) {
-                
+
                 console.log(`${n} * ${i} = ${i * n}`)
             }
         }, 1000)
-        resolve(); //값을 resolve시킴
+        resolve(`a`); //값을 resolve시킴
     })
 };
 guguPromise(5)
-    .then(() => {console.log(`별 관계가 없는것 같음`)});
+    .then((a) => { console.log(`별 관계가 없는것 같음`) });
 guguPromise(6)
-    .then(() => {console.log(`...`)});
+    .then((a) => { console.log(`${a}값이 올것`) });
 
 async function guguAsync() {
     try {
@@ -41,7 +47,8 @@ async function guguAsync() {
     }
 };
 guguAsync();
-/* 구구단 2~9까지 출력1;
+
+/* 구구단 2~9까지 출력1 (재귀함수)
 function gugudan29(n) {
     if (n > 9) return;
     for (let i = 1; i <= 9; i++) {
@@ -51,7 +58,7 @@ function gugudan29(n) {
 };
 gugudan29(2);
 */
-/* 구구단 2~9까지 출력2
+/* 구구단 2~9까지 출력2 (클로저 활용)
 function createCounter(n) {
     let count = n;
     for (let i = 1; i <= 9; i++) {
@@ -61,19 +68,7 @@ function createCounter(n) {
         count++;
         return count;
     };
-}
+ }
 createCounter(createCounter(createCounter(createCounter(createCounter(createCounter(createCounter(createCounter(2)())())())())())())()); 
 */
 
-const promise1 = new Promise((resolve, reject) => {
-  resolve("Success!"); 
-});
-
-promise1
-  .then((value) => {
-  console.log(value); 
-}).then(()=> {
-    console.log(`성공`);
-}).catch(()=>{
-    console.log(`실패`);
-});
