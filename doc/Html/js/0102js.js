@@ -36,6 +36,9 @@ class Mammal {
     getName(){
         return this.#name;
     }
+    setName(name){
+        this.#name = name;
+    }
     eat(food){
         console.log(`${this.getName()}이(가) ${food}를 먹는다.`);
     }
@@ -91,10 +94,9 @@ class Person2 extends Person { //상속
     }
 }
 
-let me = new Person2("ccc",20020818,"korea","seoul","ccc@gamil.com","010-3333-2222");
+let me = new Person2("mark",20020818,"korea","seoul","ccc@gamil.com","010-3333-2222");
 console.log(me.getName()); //변수 접근 여전히 잘됨. 자바 protected정도의 제한자인듯.
 // console.log(me2.#name); 안됨 굿.
-
 me.sleep();
 
 class Car {
@@ -182,12 +184,25 @@ console.log(myCar.getSpeed());
 
 myCar.tootHorn();
 
-class Dog extends Mammal(){
+class Dog extends Mammal{
+    #age = 0;
 
-    constructor(name){
+    constructor(name,age){
         super(name);
+        this.#age = age;
+    }
+    getAge(){
+        return this.#age;
+    }
+    setAge(age){
+        this.#age = age;
+    }
+    bark(){
+        console.log(`${this.getName()}이(가) 짖었다.`);
     }
 }
-let myDog = new Dog("개");
+let myDog = new Dog("뽀삐",2);
 myDog.sleep();
+myDog.bark();
+
 
