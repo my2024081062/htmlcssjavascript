@@ -27,7 +27,6 @@ class ArrayTest{
     console.log(arr5);
   }
   testFilter1(){
-    console.log("문제 1");
     let filter1 = this.#users.filter((filtered) => {
         return filtered.active&&filtered.age>=25;
     });
@@ -53,8 +52,9 @@ class ArrayTest{
 
     // role별로 그룹화 (실무에서 최고로 많이 씀!!)
     let roleGroup = this.#users.reduce(function(users, u){
-      (users[u.role] = users[u.role] || []).push(u);
-      return users;
+     //users[u.role] ||= []; 는 if(!users[u.role]) users[u.role] = [];와 동일한 동작을 한다. (이 속성이 존재하지않으면 배열로 생성)
+      (users[u.role] ||= []).push(u); // users[u.role].push(u)와 결과는 동일함, 단 속성이 배열이 아니면 문제가 생김.
+      return users; // users[u.role] = (users[u.role] || []) 해설 : users[u.role]가 undefined면 []를, 아니면 users[u.role]를 대입함 (뒤의 []는 무시하니까.)
     }, {});
     console.log(roleGroup);
     // → {
@@ -87,7 +87,7 @@ class ArrayTest{
     // 객체로 변환
     const fruits = ['사과', '바나나', '사과', '오렌지', '바나나', '사과'];
     const fruitCount = fruits.reduce((acc, fruit) => {
-      acc[fruit] = (acc[fruit] || 0) + 1;
+      acc[fruit] = (acc[fruit] || 0) + 1; // 해설 : acc[fruit]가 undefined면 0을, 값이 있으면 1을 더한값을 속성에 저장함.
       return acc;
     }, {});
     console.log(fruitCount); // { 사과: 3, 바나나: 2, 오렌지: 1 }
@@ -103,25 +103,33 @@ class ArrayTest{
     }, {});
     console.log(userMap); // { 1: { id: 1, name: '김철수' }, 2: { id: 2, name: '이영희' } }
   }
-  groupBy(property) {
-    return this.#users.reduce(function (users2, user) {
+  groupByProperty(property) {
+    let propertyGroup = this.#users.reduce(function (users2, user) {
       let key = user[property];
       if (!users2[key]) {
         users2[key] = [];
       }
       users2[key].push(user);
+      //(users2[key] ||= []).push(user);
       return users2;
     }, {});
+    console.log(propertyGroup);
   }
 }
 let at = new ArrayTest();
 
 at.testFilter();
 // 문제1 : this.#users 배열의 원소들 중에서 active 가 true 이고 나이가 25살 이상인 객체를 새로운 배열에 추출해서 출력.
+console.log(`문제 1`);
 at.testFilter1();
 // 문제2 : this.#users 배열의 원소들 중에서 scores 점수 평균이 90점 이상인 객체를 새로운 배열에 추출해서 출력
+console.log(`문제 2`);
 at.testFilter2();
-console.log(`reduce`);
+
+console.log(`reduce 사용해보기`);
 at.testReduce();
 
-console.log(at.groupBy("age"));
+console.log(`원하는 속성으로 그룹화 {속성1[{},{}...], 속성2[{}]...}`);
+at.groupByProperty("age");
+at.groupByProperty("active");
+at.groupByProperty("role");
