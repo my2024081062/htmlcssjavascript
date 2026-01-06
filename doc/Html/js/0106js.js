@@ -90,7 +90,7 @@ class testArray{
     let newWord = localArray.reduce((result, item, index) => {
       return /^[^a-zA-Z0-9ㄱ-힣\s]+$/.test(item) 
       ? `${result}${item}` 
-      : index==0 
+      : index===0 
         ? `${result}${item}` : `${result} ${item}`;
     }, "");
     console.log(`새 문장 = ${newWord}`);
