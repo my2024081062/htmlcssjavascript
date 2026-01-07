@@ -78,7 +78,7 @@ class testArray{
   }
 
   test10(){
-    console.log(`짝수의 합 : ${this.array01.reduce((result, item) => item%2==0 ? result+=item : result, 0)}`);
+    console.log(`짝수의 합 : ${this.array01.reduce((result, item) => item%2==0 ? result += item : result, 0)}`);
   }
 
   test11(){
@@ -92,7 +92,7 @@ class testArray{
       ? `${result}${item}` 
       : index===0 
         ? `${result}${item}` : `${result} ${item}`;
-    }, "");
+    }, ""); 
     console.log(`새 문장 = ${newWord}`);
   }
 }
