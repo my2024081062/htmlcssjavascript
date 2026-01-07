@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/0107-2.css" />
+</head>
+<body>
+  <header>
+    <h1>jquery를 이용한 동적 화면</h1>
+  </header>
+  <main>
+    <section id="inputSection">
+      <fieldset>
+        <legend>학생정보입력</legend>
+        <div>
+          <label for="id">ID : </label>
+          <input type="number" id="id" class="studentInfo" />
+        </div>
+        <div>
+          <label for="name">Name : </label>
+          <input type="text" id="name" class="studentInfo" maxlength="10" />
+        </div>
+        <div>
+          <label for="kor">KOR : </label>
+          <input type="number" id="kor" class="studentInfo" min="0" max="100" />
+        </div>
+        <div>
+          <label for="eng">ENG : </label>
+          <input type="number" id="eng" class="studentInfo" min="0" max="100" />
+        </div>
+        <div>
+          <label for="mat">MAT : </label>
+          <input type="number" id="mat" class="studentInfo" min="0" max="100" />
+        </div>
+        <div>
+          <label for="clss">CLASS : </label>
+          <input type="text" id="clss" class="studentInfo" maxlength="6" />
+        </div>
+        <div>
+          <button id="btnAddStudent">Add</button>
+        </div>
+      </fieldset>
+    </section>
+    <section id="listSection">
+      <fieldset>
+        <legend>학생목록</legend>
+        <ul id="ulList">
+
+        </ul>
+      </fieldset>
+    </section>
+  </main>
+  <footer>
+    made by ~
+  </footer>
+</body>
+
+</html>
+<script src="js/jquery-3.7.1.js"></script>
+<script src="js/jquery02.js"></script>
