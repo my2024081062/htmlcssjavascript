@@ -5,8 +5,9 @@ h1{
   display: flex;
   justify-content: center;
 }
-#inputSection > fieldset{
-  width: 750px;
+.studentInfo {
+  margin-right: 10px;
+  margin-bottom: 5px;
 }
 label {
   display: inline-block;
@@ -15,43 +16,72 @@ label {
 }
 input {
   width: 200px;
+  height: 18px;
+}
+button {
+  width: 55px;
+  margin-top: 6px;
+  margin-right: 11px;
+  float: right;
 }
 #ulList{
   display : grid;
   grid-template-columns: repeat(3,1fr);
+  gap: 5px;
 }
 ul {
   list-style: none;
   margin: 0;
   padding :0;
 }
-li {
-  margin-bottom:5px;
-}
 li > div{
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
-  border-left: 1px dotted black;
-  border-right: 1px dotted black;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid black;
 }
 li > div:nth-child(1){
   background-color: gainsboro;
 }
+li > div:nth-child(1)::before{
+  content: "ID";
+  font-weight: 600;
+}
 li > div:nth-child(2){
   background-color: wheat;
+}
+li > div:nth-child(2)::before{
+  content: "NAME";
+  font-weight: 600;
 }
 li > div:nth-child(3){
   background-color: gold;
 }
+li > div:nth-child(3)::before{
+  content: "KOR";
+  font-weight: 600;
+}
 li > div:nth-child(4){
   background-color: tomato;
+}
+li > div:nth-child(4)::before{
+  content: "ENG";
+  font-weight: 600;
 }
 li > div:nth-child(5){
   background-color: dodgerblue;
 }
+li > div:nth-child(5)::before{
+  content: "MAT";
+  font-weight: 600;
+}
 li > div:nth-child(6){
   background-color: olivedrab;
 }
+li > div:nth-child(6)::before{
+  content: "CLASS";
+  font-weight: 600;
+}
+
 
 @media (min-width: 768px){
   #ulList {

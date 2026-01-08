@@ -1,13 +1,4 @@
 class DOMControlTest {
-  #title =
-    {
-      id: "ID",
-      name: "NAME",
-      kor: "KOR",
-      eng: "ENG",
-      mat: "MAT",
-      clss: "CLASS",
-    }
   #users = [
     {
       id: 1,
@@ -35,35 +26,72 @@ class DOMControlTest {
     },
   ];
 
+
+
   printHtml() {
     $("#ulList").empty(); //기존에 모두 다 지우고
-    $("#ulList").append(`
-<li id="titleLi">
-  <div>
-    <div>${this.#title.id}</div>
-  </div>
-  <div>
-    <div>${this.#title.name}</div>
-  </div>
-  <div>
-    <div>${this.#title.kor}</div>
-  </div>
-  <div>
-    <div>${this.#title.eng}</div>
-  </div>
-  <div>
-    <div>${this.#title.mat}</div>
-  </div>
-  <div>
-    <div>${this.#title.clss}</div>
-  </div>
-</li>`);
-    this.#users.sort((a,b) => a.id - b.id);
+    this.#users.sort((a, b) => a.id - b.id); //아이디로 정렬후
     this.#users.forEach((student) => {
       $("#ulList").append(this.getOneHtmlStudent(student));
     }); //getOneHtmlStudent함수로 객체값을 화면에 추가함
-    
+
   }
+
+  checkValidInput(checkFor) {
+    if (checkFor === `forAdd` && ($("#id").val() === '' || this.#users.some((item) => {
+      return item.id * 1 === $("#id").val() * 1
+    }))) {
+      alert(`번호가 중복되거나 비어있습니다.`);
+      $("#id").focus();
+      return true;
+    }
+    if ($("#name").val().length < 2 || $("#name").val().length > 10) {
+      alert(`이름은 2글자 이상 10글자 이하로 입력하세요`);
+      $("#name").focus();
+      return true;
+    }
+    if ($("#kor").val() === '' || ($("#kor").val() * 1) < 0 || ($("#kor").val() * 1) > 100) {
+      alert(`국어 점수를 제대로 입력하세요`);
+      $("#kor").focus();
+      return true;
+    }
+    if ($("#eng").val() === '' || ($("#eng").val() * 1) < 0 || ($("#eng").val() * 1) > 100) {
+      alert(`영어 점수를 제대로 입력하세요`);
+      $("#eng").focus();
+      return true;
+    }
+    if ($("#mat").val() === '' || ($("#mat").val() * 1) < 0 || ($("#mat").val() * 1) > 100) {
+      alert(`수학 점수를 제대로 입력하세요`);
+      $("#mat").focus();
+      return true;
+    }
+    if ($("#clss").val() === '') {
+      alert(`반 번호를 제대로 입력하세요`);
+      $("#clss").focus();
+      return true;
+    }
+    return false;
+  }
+
+  clearInput() {
+    $("#id").val('');
+    $("#name").val('');
+    $("#kor").val('');
+    $("#eng").val('');
+    $("#mat").val('');
+    $("#clss").val('');
+  }
+
+  setInputData(item) {
+    $("#id").val(`${item.id}`);
+    $("#name").val(`${item.name}`);
+    $("#kor").val(`${item.kor}`);
+    $("#eng").val(`${item.eng}`);
+    $("#mat").val(`${item.mat}`);
+    $("#clss").val(`${item.clss}`);
+  }
+
+  
 
   getOneHtmlStudent(student) {
     let oneHtml = `
@@ -89,6 +117,18 @@ class DOMControlTest {
 </li>`;
     return oneHtml;
   }
+
+  inputStudentData() {
+    return {
+      id: $("#id").val(),
+      name: $("#name").val(),
+      kor: $("#kor").val(),
+      eng: $("#eng").val(),
+      mat: $("#mat").val(),
+      clss: $("#clss").val(),
+    }
+  }
+
   addStudent() {
     /*
     1번.
@@ -106,40 +146,49 @@ class DOMControlTest {
       clss: "3-2",
     }
     */
-    
-    if($("#id").val()===''){
+    //1.5번 입력값이 잘못되면 아무것도 안하고 돌아가기
+    if (this.checkValidInput(`forAdd`))
       return;
-    }
-    if($("#name").val()===''){
-      return;
-    }
-    if($("#kor").val()===''){
-      return;
-    }
-    if($("#eng").val()===''){
-      return;
-    }
-    if($("#mat").val()===''){
-      return;
-    }
-    if($("#clss").val()===''){
-      return;
-    }
-    let newStudnet = {
-      id: $("#id").val(),
-      name: $("#name").val(),
-      kor: $("#kor").val(),
-      eng: $("#eng").val(),
-      mat: $("#mat").val(),
-      clss: $("#clss").val(),
-    }
+
+    let newStudent = this.inputStudentData();
     /*
     2번
     1번에서 만든 객체를 this.#users 배열 뒤의 요소에 추가해야 한다.
     */
-    this.#users.push(newStudnet)
-    //입력창 초기화
-    $(".studentInfo").val('');
+    this.#users.push(newStudent);
+  }
+  // 업데이트
+  updateStudent() {
+    if (this.checkValidInput(`forUpdate`))
+      return;
+
+    let modifyStudent = this.inputStudentData();
+    let findIndex = this.#users.findIndex((item) => {
+      return item.id * 1 === modifyStudent.id * 1;
+    })
+    if (findIndex === -1)
+      return;
+    else
+      this.#users = this.#users.with(findIndex, modifyStudent);
+  }
+
+  deleteStudent() {
+    let deleteStudent = this.inputStudentData();
+    let findIndex = this.#users.findIndex((item) => {
+      return item.id * 1 === deleteStudent.id * 1;
+    })
+    if (findIndex === -1)
+      return;
+    else
+      this.#users.splice(findIndex, 1);
+  }
+
+  printItem(id) {
+    let findItem = this.#users.find((item) => item.id * 1 === id * 1);
+    if (findItem === undefined)
+      return;
+    else
+      this.setInputData(findItem);
   }
 }
 
@@ -151,6 +200,30 @@ $(function () {
     e.preventDefault();
     domCtrl.addStudent()
     domCtrl.printHtml();
+    domCtrl.clearInput();
+  });
+
+  $("#btnUpdateStudent").click(function (e) {
+    e.preventDefault();
+    domCtrl.updateStudent();
+    domCtrl.printHtml();
+    domCtrl.clearInput();
+  });
+
+  $("#btnDeleteStudent").click(function (e) {
+    e.preventDefault();
+    domCtrl.deleteStudent();
+    domCtrl.printHtml();
+    domCtrl.clearInput();
+  });
+
+  $("#btnClearStudent").click(function (e) {
+    e.preventDefault();
+    domCtrl.clearInput();
+  });
+  //동적 DOM에 이벤트 추가
+  $(document).on(`click`, ".dataLi", function (e) {
+    domCtrl.printItem($(e.currentTarget).children().first().text());
   });
 });
 

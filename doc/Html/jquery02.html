@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" href="css/0107-2.css" />
+  <link rel="stylesheet" href="css/jquery02.css" />
 </head>
 <body>
   <header>
@@ -16,30 +16,33 @@
         <legend>학생정보입력</legend>
         <div>
           <label for="id">ID : </label>
-          <input type="number" id="id" class="studentInfo" />
+          <input type="number" id="id" min="1" class="studentInfo"/>
         </div>
         <div>
           <label for="name">Name : </label>
-          <input type="text" id="name" class="studentInfo" maxlength="10" />
+          <input type="text" id="name" class="studentInfo" maxlength="10"/>
         </div>
         <div>
           <label for="kor">KOR : </label>
-          <input type="number" id="kor" class="studentInfo" min="0" max="100" />
+          <input type="number" id="kor" class="studentInfo" min="0" max="100"/>
         </div>
         <div>
           <label for="eng">ENG : </label>
-          <input type="number" id="eng" class="studentInfo" min="0" max="100" />
+          <input type="number" id="eng" class="studentInfo" min="0" max="100"/>
         </div>
         <div>
           <label for="mat">MAT : </label>
-          <input type="number" id="mat" class="studentInfo" min="0" max="100" />
+          <input type="number" id="mat" class="studentInfo" min="0" max="100"/>
         </div>
         <div>
           <label for="clss">CLASS : </label>
-          <input type="text" id="clss" class="studentInfo" maxlength="6" />
+          <input type="text" id="clss" class="studentInfo" maxlength="4"/>
         </div>
         <div>
           <button id="btnAddStudent">Add</button>
+          <button id="btnUpdateStudent">Modify</button>
+          <button id="btnDeleteStudent">Delete</button>
+          <button id="btnClearStudent">Clear</button>
         </div>
       </fieldset>
     </section>
@@ -47,7 +50,6 @@
       <fieldset>
         <legend>학생목록</legend>
         <ul id="ulList">
-
         </ul>
       </fieldset>
     </section>

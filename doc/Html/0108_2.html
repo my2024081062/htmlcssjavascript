@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/0108_2.css" />
+</head>
+<body>
+  <header>
+    <h1>닌텐도 게임 정보2</h1>
+  </header>
+  <main>
+    <section id="inputSection">
+      <fieldset>
+        <legend>게임정보입력</legend>
+        <div class="inputData">
+          <label class="gameLabel" for="id">게임제목</label>
+          <input type="text" id="title"/>
+        </div>
+        <div class="inputData">
+          <label class="gameLabel" for="name">게임장르</label>
+          <input type="text" id="genre" maxlength="8"/>
+        </div>
+        <div class="inputData">
+          <label class="gameLabel" for="kor">게임등급</label>
+          <input type="text" id="grade"/>
+        </div>
+        <div class="inputData">
+          <label class="gameLabel" for="eng">게임가격</label>
+          <input type="number" id="price" min="0"/>
+        </div>
+        <div class="inputData">
+          <input type="file" id="img"/>
+        </div>
+        <div class="btn">
+          <button id="btnAdd">추가</button>
+          <button id="btnUpdate">수정</button>
+          <button id="btnDelete">삭제</button>
+        </div>
+      </fieldset>
+    </section>
+    <section id="listSection">
+      <fieldset>
+        <legend>게임목록</legend>
+        <div id="gameList">
+
+        </div>
+      </fieldset>
+    </section>
+  </main>
+  <footer>
+    made by ~
+  </footer>
+</body>
+
+</html>
+<script src="js/jquery-3.7.1.js"></script>
+<script src="js/0108_2.js"></script>
