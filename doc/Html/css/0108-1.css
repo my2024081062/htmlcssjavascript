@@ -1,0 +1,172 @@
+h1 {
+  margin: 6px 0px;
+}
+
+.inputField {
+  background-color: rgba(255, 235, 205, 0.3);
+}
+
+.inputField legend {
+  background-color: white;
+  border: 1px solid black;
+}
+
+#inputDatas {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(5, 30px);
+}
+
+.inputItem {
+  display: grid;
+  width: inherit;
+  gap: 3px;
+  margin: 4px;
+  grid-template-columns: 150px auto;
+  align-items: start
+    /* justify-content: space-between; */
+}
+
+.div> :first-child {
+  display: block;
+  width: 100%;
+  height: 26px;
+  box-sizing: border-box;
+}
+
+.text-wrapper {
+  border: 1px solid black;
+  text-align: center;
+}
+
+.inputImage {
+  text-align: center;
+  display: block;
+}
+
+#showImage {
+  max-height: 280px;
+  max-width: 100%;
+}
+
+.inputButtons {
+  height: 30px;
+  margin-left: 30%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* justify-content: center; */
+}
+
+.btn-wrapper {
+  margin: 2px;
+}
+
+.btn {
+  background-color: rgba(74, 243, 136, 0.5);
+  width: 100%;
+  height: 100%;
+}
+
+#listDataBlock {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.listField {
+  background-color: rgba(147, 112, 216, 0.2);
+}
+
+.listField legend {
+  background-color: white;
+  border: 1px solid black;
+}
+
+.listDataRow {
+  background-color: ghostwhite;
+  display: grid;
+  grid-template-columns: 105px 120px auto;
+  border: 1px solid black;
+  margin: 0px 5px 5px 5px;
+}
+
+.listItem:first-child {
+  display: none;
+  visibility: hidden;
+}
+.listItem {
+  margin: 4px 0px 4px 4px;
+}
+.listItem:nth-child(4) {
+  margin-right: 4px;
+}
+.itemData{
+  background-color: rgba(147, 112, 216, 0.2);
+}
+#id {
+  display: none;
+  visibility: hidden;
+}
+
+@media (min-width: 768px) {
+  #inputDatas {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 30px 30px;
+  }
+
+  .inputButtons {
+    height: 40px;
+    margin-left: 40%;
+  }
+
+  #listDataBlock {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .listDataRow {
+    grid-template-columns: 90px 100px auto;
+  }
+
+}
+
+@media (min-width: 1024px) {
+  #inputDatas {
+    grid-template-columns: none;
+    grid-template-rows: none;
+  }
+  #inputDatas > :nth-child(1){
+    grid-column: 1 / 5;
+    grid-row: 1 / 2;
+  }
+  #inputDatas > :nth-child(2){
+    grid-column: 5 / 9;
+    grid-row: 1 / 2;
+  }
+  #inputDatas > :nth-child(3){
+    grid-column: 9 / 13;
+    grid-row: 1 / 2;
+  }
+  #inputDatas > :nth-child(4){
+    grid-column: 1 / 4;
+    grid-row: 2 / 3;
+  }
+  #inputDatas > :nth-child(5){
+    grid-column: 4 / 7;
+    grid-row: 2 / 3;
+  }
+  #inputDatas > :nth-child(6){
+    grid-column: 7 / 13;
+    grid-row: 2 / 8;
+  }
+
+  .inputButtons {
+    margin-left: 50%;
+  }
+
+  #listDataBlock {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .listDataRow {
+    grid-template-columns: 70px 80px auto;
+  }
+}
