@@ -91,8 +91,6 @@ class DOMControlTest {
     $("#clss").val(`${item.clss}`);
   }
 
-  
-
   getOneHtmlStudent(student) {
     let oneHtml = `
 <li class="dataLi">

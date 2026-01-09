@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="css/0108_2.css" />
 </head>
+
 <body>
   <header>
     <h1>닌텐도 게임 정보2</h1>
@@ -14,24 +16,43 @@
     <section id="inputSection">
       <fieldset>
         <legend>게임정보입력</legend>
-        <div class="inputData">
-          <label class="gameLabel" for="id">게임제목</label>
-          <input type="text" id="title"/>
+        <div class="inputGrid">
+          <div class="inputData">
+            <label class="gameLabel" for="id">게임제목</label>
+            <input type="text" id="title" />
+          </div>
+          <div class="inputData">
+            <label class="gameLabel" for="name">게임장르</label>
+            <select id="genre" maxlength="8">
+              <option>선택</option>
+              <option>레이싱</option>
+              <option>스포츠</option>
+              <option>캐주얼</option>
+              <option>액션</option>
+            </select>
+          </div>
+          <div class="inputData">
+            <label class="gameLabel" for="kor">게임등급</label>
+            <select id="grade">
+              <option>선택</option>
+              <option>전체</option>
+              <option>7세</option>
+              <option>12세</option>
+              <option>15세</option>
+              <option>18세</option>
+            </select>
+          </div>
+          <div class="inputData">
+            <label class="gameLabel" for="eng">게임가격</label>
+            <input type="number" id="price" min="0" />
+          </div>
+          <div class="inputData">
+            <label class="gameLabel" for="eng">이미지주소</label>
+            <input type="text" id="src" min="0" />
+          </div>
         </div>
-        <div class="inputData">
-          <label class="gameLabel" for="name">게임장르</label>
-          <input type="text" id="genre" maxlength="8"/>
-        </div>
-        <div class="inputData">
-          <label class="gameLabel" for="kor">게임등급</label>
-          <input type="text" id="grade"/>
-        </div>
-        <div class="inputData">
-          <label class="gameLabel" for="eng">게임가격</label>
-          <input type="number" id="price" min="0"/>
-        </div>
-        <div class="inputData">
-          <input type="file" id="img"/>
+        <div class="inputImg">
+          <img src="" alt="게임이미지">
         </div>
         <div class="btn">
           <button id="btnAdd">추가</button>
